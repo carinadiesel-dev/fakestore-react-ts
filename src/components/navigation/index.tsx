@@ -1,6 +1,5 @@
 import AdbIcon from "@mui/icons-material/Adb";
 import MenuIcon from "@mui/icons-material/Menu";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import StoreIcon from "@mui/icons-material/Store";
 import { Toolbar } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
@@ -12,6 +11,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import CartDrawer from "../CartDrawer";
 
 const pages = ["Home", "Products"];
 
@@ -19,25 +19,14 @@ function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
     <AppBar position="static" sx={{ bgcolor: "#181C2D" }}>
       <Container maxWidth="xl">
@@ -58,7 +47,7 @@ function NavBar() {
               textDecoration: "none",
             }}
           >
-            THE STORE
+            FAKE STORE
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -121,6 +110,7 @@ function NavBar() {
               flexGrow: 1,
               display: { xs: "none", md: "flex" },
               justifyContent: "end",
+              alignItems: "center",
               gap: 6,
             }}
           >
@@ -133,20 +123,7 @@ function NavBar() {
                 {page}
               </Button>
             ))}
-            <Button
-              sx={{
-                py: 0,
-                px: 2,
-                color: "white",
-                display: "flex",
-                gap: 1,
-                my: 2,
-              }}
-              variant="outlined"
-              startIcon={<ShoppingCartIcon />}
-            >
-              View Cart
-            </Button>
+            <CartDrawer />
           </Box>
         </Toolbar>
       </Container>
