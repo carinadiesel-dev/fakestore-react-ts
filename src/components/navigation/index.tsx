@@ -1,7 +1,6 @@
 import AdbIcon from "@mui/icons-material/Adb";
 import MenuIcon from "@mui/icons-material/Menu";
-import StoreIcon from "@mui/icons-material/Store";
-import { Toolbar } from "@mui/material";
+import { Toolbar, useTheme } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -11,11 +10,14 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import logoImg from "../../assets/logo.png";
 import CartDrawer from "../CartDrawer";
 
 const pages = ["Home", "Products"];
 
 function NavBar() {
+  const theme = useTheme();
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -28,15 +30,18 @@ function NavBar() {
     setAnchorElNav(null);
   };
   return (
-    <AppBar position="static" sx={{ bgcolor: "#181C2D" }}>
+    <AppBar
+      position="static"
+      sx={{ backgroundColor: theme.palette.primary.main }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <StoreIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <Box sx={{ marginRight: 2, marginTop: 0.5 }}>
+            <img src={logoImg} alt="" height={36} />
+          </Box>
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -47,7 +52,7 @@ function NavBar() {
               textDecoration: "none",
             }}
           >
-            FAKE STORE
+            CHRISTMAS STORE
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
