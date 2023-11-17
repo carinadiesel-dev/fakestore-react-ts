@@ -7,15 +7,30 @@ import App from "./App.tsx";
 import "./index.css";
 BrowserRouter;
 
-const darkTheme = createTheme({
+const christmasTheme = createTheme({
   palette: {
-    mode: "dark",
+    mode: "light",
+    primary: {
+      main: "#002d26",
+    },
+    secondary: {
+      main: "#3e92cc",
+    },
+    error: {
+      main: "#a01a22",
+    },
+    info: {
+      main: "#3e92cc",
+    },
+    success: {
+      main: "#d1beb0",
+    },
   },
 });
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={christmasTheme}>
       <CssBaseline />
       <BrowserRouter>
         <App />
