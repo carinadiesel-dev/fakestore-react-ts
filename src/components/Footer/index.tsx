@@ -10,8 +10,8 @@ const Footer = () => {
         py: 4,
       }}
     >
-      <Typography>
-        &copy; Fake Store | Designed & Developed by Carina Diesel
+      <Typography variant="body1">
+        &copy; Christmas Store | Designed & Developed by Carina Diesel
       </Typography>
     </Box>
   );
