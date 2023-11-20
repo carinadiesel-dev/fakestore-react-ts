@@ -23,7 +23,7 @@ const pages = [
   { title: "Products", href: "/products" },
 ];
 
-function NavBar() {
+export default function NavBar() {
   const theme = useTheme();
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -157,4 +157,3 @@ function NavBar() {
     </AppBar>
   );
 }
-export default NavBar;
