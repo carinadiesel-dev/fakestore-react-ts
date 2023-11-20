@@ -1,19 +1,27 @@
 import AdbIcon from "@mui/icons-material/Adb";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Toolbar, useTheme } from "@mui/material";
+import { MenuItem, Toolbar, useTheme } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { NavLink } from "react-router-dom";
 import logoImg from "../../assets/logo.png";
 import CartDrawer from "../CartDrawer";
 
-const pages = ["Home", "Products"];
+type Page = {
+  title: string;
+  href: string;
+};
+
+const pages = [
+  { title: "Home", href: "/" },
+  { title: "Products", href: "/products" },
+];
 
 function NavBar() {
   const theme = useTheme();
@@ -84,9 +92,15 @@ function NavBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map((page, index) => (
+                <MenuItem
+                  key={index}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  <NavLink to={page.href}>
+                    <Typography textAlign="center">{page.title}</Typography>
+                  </NavLink>
                 </MenuItem>
               ))}
             </Menu>
@@ -119,14 +133,22 @@ function NavBar() {
               gap: 6,
             }}
           >
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
+            {pages.map((page, index) => (
+              <NavLink to={page.href} style={{ textDecoration: "none" }}>
+                <Button
+                  key={index}
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    fontWeight: "bold",
+                    "&:hover": { color: theme.palette.secondary.main },
+                  }}
+                >
+                  {page.title}
+                </Button>
+              </NavLink>
             ))}
             <CartDrawer />
           </Box>
