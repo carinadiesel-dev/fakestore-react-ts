@@ -143,7 +143,7 @@ function NavBar() {
                     color: "white",
                     display: "block",
                     fontWeight: "bold",
-                    "&:hover": { color: theme.palette.secondary.main },
+                    "&:hover": { color: theme.palette.error.main },
                   }}
                 >
                   {page.title}
