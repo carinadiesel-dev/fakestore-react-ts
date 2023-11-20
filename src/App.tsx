@@ -1,12 +1,13 @@
-import { Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import NavBar from "./components/Navigation/index.tsx";
+import Layout from "./components/Layout/index.tsx";
 
 function App() {
   return (
     <>
-      <NavBar />
-      <Routes>{/* Add routes */}</Routes>
+      <Routes>
+        <Route index element={<Layout />} />
+      </Routes>
     </>
   );
 }
