@@ -1,4 +1,5 @@
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import List from "@mui/material/List";
@@ -17,6 +18,8 @@ export default function CartDrawer() {
     bottom: false,
     right: false,
   });
+
+  const theme = useTheme();
 
   const toggleDrawer =
     (anchor: Anchor, open: boolean) =>
@@ -63,8 +66,12 @@ export default function CartDrawer() {
           color: "white",
           display: "flex",
           gap: 1,
+          fontWeight: "bold",
+          border: ` 2px solid white`,
+          "&:hover": {
+            backgroundColor: theme.palette.error.main,
+          },
         }}
-        variant="outlined"
         startIcon={<ShoppingCartIcon />}
         onClick={toggleDrawer("right", true)}
       >

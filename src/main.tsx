@@ -14,7 +14,7 @@ const christmasTheme = createTheme({
       main: "#002d26",
     },
     secondary: {
-      main: "#3e92cc",
+      main: "#9191e9",
     },
     error: {
       main: "#a01a22",
