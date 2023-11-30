@@ -35,18 +35,19 @@ export default function RecipeReviewCard({
   return (
     <Card
       sx={{
-        // maxWidth: 400,
-        minHeight: 300,
-        width: "25%",
+        minHeight: 400,
+        width: "28%",
         display: "flex",
         alignItems: "center",
         justifyContent: "stretch",
         flexDirection: "column",
         border: `2px solid ${theme.palette.primary.main}`,
+        paddingY: 2,
+        my: 4,
       }}
     >
       <CardHeader title={title} sx={{ height: "5rem" }} />
-      <Box sx={{}}>
+      <Box sx={{ paddingTop: 4 }}>
         <CardMedia
           component="img"
           image={image}
@@ -54,8 +55,13 @@ export default function RecipeReviewCard({
         />
       </Box>
 
-      <CardContent sx={{ maxWidth: "20rem" }}>
-        <Typography variant="body1" color="text.secondary" noWrap paragraph>
+      <CardContent sx={{ maxWidth: "20rem", pt: 4 }}>
+        <Typography
+          variant="h5"
+          color={theme.palette.primary.main}
+          noWrap
+          paragraph
+        >
           $ {price}
         </Typography>
       </CardContent>

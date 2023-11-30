@@ -11,7 +11,7 @@ const Products = () => {
 
   const fetchProductData = async () => {
     try {
-      const response = await fetch("https://fakestoreapi.com/products?limit=3");
+      const response = await fetch("https://fakestoreapi.com/products?limit=6");
       const parsedResponse = await response.json();
       setProduct(parsedResponse);
       console.log(parsedResponse);
@@ -21,8 +21,16 @@ const Products = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", gap: 8 }}>
-      Products
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        items: "center",
+        justifyContent: "space-around",
+        gap: 0,
+      }}
+    >
+      {/* Products */}
       {product?.map((el: any, index) => {
         return (
           <ProductCard
