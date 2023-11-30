@@ -67,7 +67,8 @@ export default function CartDrawer() {
           display: "flex",
           gap: 1,
           fontWeight: "bold",
-          border: ` 2px solid white`,
+          border: `2px solid white`,
+
           "&:hover": {
             backgroundColor: theme.palette.error.main,
           },
