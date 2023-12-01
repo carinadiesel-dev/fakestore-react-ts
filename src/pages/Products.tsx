@@ -1,9 +1,10 @@
-import { Box } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 
-const Products = () => {
+export default function Products() {
   const [product, setProduct] = useState([]);
+  const theme = useTheme();
 
   useEffect(() => {
     fetchProductData();
@@ -21,31 +22,33 @@ const Products = () => {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        items: "center",
-        justifyContent: "space-around",
-        gap: 0,
-      }}
-    >
-      {/* Products */}
-      {product?.map((el: any, index) => {
-        return (
-          <ProductCard
-            category={el.category}
-            description={el.description}
-            id={el.id}
-            image={el.image}
-            price={el.price}
-            title={el.title}
-            key={index}
-          ></ProductCard>
-        );
-      })}
+    <Box sx={{}}>
+      <Typography variant="h1" sx={{ color: theme.palette.primary.main }}>
+        Products
+      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          items: "center",
+          justifyContent: "space-around",
+          gap: 0,
+        }}
+      >
+        {product?.map((el: any, index) => {
+          return (
+            <ProductCard
+              category={el.category}
+              description={el.description}
+              id={el.id}
+              image={el.image}
+              price={el.price}
+              title={el.title}
+              key={index}
+            ></ProductCard>
+          );
+        })}
+      </Box>
     </Box>
   );
-};
-
-export default Products;
+}
