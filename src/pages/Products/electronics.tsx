@@ -1,8 +1,8 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../../components/ProductCard";
 
-export default function Products() {
+export default function Electronics() {
   const [product, setProduct] = useState([]);
   const theme = useTheme();
 
@@ -22,9 +22,9 @@ export default function Products() {
   };
 
   return (
-    <Box sx={{}}>
+    <Box sx={{ backgroundColor: theme.palette.success.main }}>
       <Typography variant="h1" sx={{ color: theme.palette.primary.main }}>
-        Products
+        Electronics
       </Typography>
       <Box
         sx={{

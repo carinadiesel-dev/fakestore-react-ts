@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Layout from "./components/Layout/index.tsx";
 import HomePage from "./pages/Home.tsx";
-import ProductsPage from "./pages/Products.tsx";
+import ProductsPage from "./pages/Products/index.tsx";
 
 function App() {
   return (
